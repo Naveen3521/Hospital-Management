@@ -1,0 +1,70 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style media="screen">
+     body{
+      background: linear-gradient(to bottom left, #ffffff 0%, #808080 120%);
+    }
+     table{
+      background: linear-gradient(to bottom left, #ffffff 0%, #808080 120%);
+    }
+    a:link {
+      text-decoration: none;
+    }
+    .panel-primary>.panel-heading{
+    background: linear-gradient(to right, #ff3399 0%, #ffccff 100%);
+    border-color:grey;
+  }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<!--
+written By : Rohith V
+-->
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title" style="font-family: 'Audiowide', sans-serif;font-weight: bold;color: black;">Appointment Approvals Required</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Doctor Name</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Patient Name</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Description</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Date</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Approve</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Reject</th>
+        </tr>
+      </thead>
+      {% for a in appointments %}
+      <tr>
+        <td style="font-weight: bold;"> {{a.doctorName}}</td>
+        <td style="font-weight: bold;">{{a.patientName}}</td>
+        <td style="font-weight: bold;">{{a.description}}</td>
+        <td style="font-weight: bold;">{{a.appointmentDate}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'approve-appointment' a.id  %}"><span class="glyphicon glyphicon-ok"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'reject-appointment' a.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+
+</div>
+<!--
+developed By : Rohith V
+-->
+
+{% endblock content %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>SR HOSPITALS</title>
+<link rel="icon" type="image/jpg" href="https://icon-library.com/images/hospital-icon-png/hospital-icon-png-11.jpg">
+
+</head>
+
+<body>
+
+  {% include "hospital/navbar.html" %}
+  <br><br>
+
+  <center>
+    <h3 class='alert alert-success' style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Send Us Your Valuable Feedback !</h3>
+
+    <form method="POST">
+      <!-- Very Important csrf Token -->
+      {% csrf_token %}
+      <div class="form-group">
+        <p>
+        <h3 style="font-family: 'Audiowide', sans-serif;font-weight: bold;">{{ form.as_p }}</h3>
+        </p>
+        <br>
+        <input type="submit" value="Send Message" style="font-family: 'Audiowide', sans-serif;font-weight: bold;" class='btn btn-primary btn-lg'>
+      </div>
+    </form>
+  </center>
+  {% include "hospital/footer.html" %}
+</body>
+
+<style media="screen">
+  .btn-primary {
+      border-style: solid;
+      border-width: 5px;
+      border-color: indigo;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 15%;
+      cursor: pointer;
+      background:white;
+      color:  #9933ff;
+    }
+    .btn-primary:hover{
+      border-color: indigo;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background:-webkit-linear-gradient(left, #0072ff, #8811c5) ;
+      color: #fff;
+    }
+</style>
+
+<!--
+developed By : Rohith V
+-->
+
+</html>

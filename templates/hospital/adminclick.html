@@ -1,0 +1,48 @@
+{% extends 'hospital/homebase.html' %}
+<!--
+developed By : Rohith V
+-->
+{% block content %}
+
+<br>
+<br>
+
+<div class="jumbotron" style="margin-bottom:0px;">
+  <h1 class="display-4" style="text-align:center;color:black;font-family: 'Audiowide', sans-serif;font-weight: bold;">Hello, Admin</h1>
+  <p class="lead" style="color:black;font-family: 'Audiowide', sans-serif;font-weight: normal;">Welcome to SR HOSPITALS</p>
+  <hr class="my-4">
+  <p style="color:black;font-family: 'Audiowide', sans-serif;font-weight: normal;">You can access various features after Login/SignUp.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/adminsignup" role="button" style="font-family: 'Audiowide', sans-serif;font-weight: bold;">SignUp</a>
+    <a class="btn btn-primary btn-lg" href="/adminlogin" role="button" style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Login</a>
+  </p>
+</div>
+
+<style media="screen">
+  body{
+    background: linear-gradient(to left, #ffffff 0%, #808080 100%);
+  }
+  .btn-primary {
+      border-style: solid;
+      border-width: 5px;
+      border-color: indigo;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 10%;
+      cursor: pointer;
+      background:white;
+      color:  #9933ff;
+    }
+    .btn-primary:hover{
+      border-color: indigo;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 15%;
+      cursor: pointer;
+      background:-webkit-linear-gradient(left, #0072ff, #8811c5) ;
+      color: #fff;
+    }
+</style>
+
+{% endblock content %}
+

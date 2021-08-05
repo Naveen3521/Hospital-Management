@@ -1,0 +1,63 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+     body{
+      background: linear-gradient(to bottom left, #ffffff 0%, #808080 120%);
+    }
+    .panel-primary>.panel-heading{
+    background: linear-gradient(to right, #ff3399 0%, #ffccff 100%);
+    border-color:grey;
+  }
+     table{
+      background: linear-gradient(to bottom left, #ffffff 0%, #808080 120%);
+    }
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<!--
+written By : Rohith V 
+-->
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title" style="font-family: 'Audiowide', sans-serif;font-weight: bold;color: black;">Department & Doctors</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Department</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Doctor Name</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Mobile</th>
+        </tr>
+      </thead>
+      {% for d in doctors %}
+      <tr>
+        <td style="font-weight: bold;">{{d.department}}</td>
+        <td style="font-weight: bold;"> {{d.get_name}}</td>
+        <td style="font-weight: bold;">{{d.mobile}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<!--
+developed By : Rohith V
+-->
+
+{% endblock content %}

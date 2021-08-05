@@ -1,0 +1,75 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    body{
+      background: linear-gradient(to left, #ffffff 0%, #808080 120%);
+    }
+     table{
+      background: linear-gradient(to bottom left, #ffffff 0%, #808080 120%);
+    }
+    a:link {
+      text-decoration: none;
+    }
+
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    .panel-primary>.panel-heading{
+    background: linear-gradient(to right, #ff3399 0%, #ffccff 100%);
+    border-color:grey;
+  }
+  </style>
+</head>
+<!--
+written By : Rohith V
+-->
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title" style="font-family: 'Audiowide', sans-serif;font-weight: bold;color:black;">Doctors</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Name</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Profile Picture</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Mobile</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Address</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Department</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Update</th>
+          <th style="font-family: 'Audiowide', sans-serif;font-weight: bold;">Delete</th>
+        </tr>
+      </thead>
+      {% for d in doctors %}
+      <tr>
+
+        <td style="font-weight: bold;"> {{d.get_name}}</td>
+        <td> <img src="{% static d.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td style="font-weight: bold;">{{d.mobile}}</td>
+        <td style="font-weight: bold;">{{d.address}}</td>
+        <td style="font-weight: bold;">{{d.department}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'update-doctor' d.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-doctor-from-hospital' d.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<!--
+developed By : Rohith V
+-->
+
+{% endblock content %}
